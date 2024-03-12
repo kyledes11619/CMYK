@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 738281648928633636}
   - component: {fileID: 6863666976779840929}
   - component: {fileID: 6532460463222627218}
+  - component: {fileID: -3868382652916295398}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -130,6 +131,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &-3868382652916295398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738281648928633637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757c8c00b343eb04492bf22f7ea700a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 3
+  colorMats:
+  - {fileID: 2100000, guid: 7afefcfea5c449e4f854dbee845de889, type: 2}
+  - {fileID: 2100000, guid: 33d7509e06277b24eb22e4756d35ef07, type: 2}
+  - {fileID: 2100000, guid: 47baecc3eb43d6c4285850d83a6ab411, type: 2}
+  - {fileID: 2100000, guid: 94a8a323f0d5d2b4c988921e90a6d6ed, type: 2}
+  coloredMeshes:
+  - {fileID: 738281649042320246}
 --- !u!1 &738281649042320245
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738281649042320245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0.53}
+  m_LocalPosition: {x: 0, y: 0.186, z: -0.558}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
