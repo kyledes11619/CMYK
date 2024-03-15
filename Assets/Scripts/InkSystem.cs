@@ -8,6 +8,10 @@ public class InkSystem : MonoBehaviour
     public Material[] colorMats;
     public MeshRenderer[] coloredMeshes;
 
+    public Transform inkPoint;
+    public float inkingRadius;
+    public GameObject[] inkParticles;
+
     void Start()
     {
         SetColor(color);
@@ -19,6 +23,10 @@ public class InkSystem : MonoBehaviour
             SetColor(Input.GetAxis("DPadX") == 1 ? 2 : 0);
         else if (Input.GetAxis("DPadY") != 0)
             SetColor(Input.GetAxis("DPadY") == 1 ? 1 : 3);
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Destroy(Instantiate(inkParticles[color], inkPoint), 1);
+        }
     }
 
     void SetColor(int i)
