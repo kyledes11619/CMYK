@@ -133,11 +133,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f2cab30b5785c47b95611811bc5de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inkTimer: 0
+  inkCooldown: 0.5
   color: 0
   maxHealth: 4
   damage: 1
   damageCooldown: 2
-  damageRange: 1
+  damageRange: 1.5
   target: {fileID: 0}
   playerTargetRadius: 10
   damageText: {fileID: 7956322849051649987, guid: 59c610e67db93c84c85214130de3040c, type: 3}
+  maxAttractRange: 20

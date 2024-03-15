@@ -14,10 +14,8 @@ public class InkInteraction : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("hit" + inkTimer);
-        if (inkTimer > 0)
+        if (!canInk())
             return;
-        inkTimer += inkCooldown;
         if (other.GetComponent<InkParticle>() != null)
             Ink(other.GetComponent<InkParticle>().color);
     }
@@ -26,4 +24,6 @@ public class InkInteraction : MonoBehaviour
     {
 
     }
+
+    public virtual bool canInk() { return inkTimer <= 0; }
 }

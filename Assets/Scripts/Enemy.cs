@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Enemy : InkInteraction
 {
     public int color = 3, maxHealth = 4, damage = 1;
-    public float damageCooldown = 2, damageRange = 1;
+    public float damageCooldown = 2, damageRange = 1.5f;
     public Transform target;
     int health;
     float damageCooldownTimer = 0;
@@ -30,7 +30,17 @@ public class Enemy : InkInteraction
         if (damageCooldownTimer > 0)
             damageCooldownTimer -= Time.deltaTime;
         if (target != null)
-            nav.SetDestination(target.position);
+        {
+            if (target.GetComponent<Torch>() != null)
+            {
+                if (Vector3.Distance(transform.position, target.position) < damageRange)
+                    target.GetComponent<Torch>().Snuff();
+                if (!target.GetComponent<Torch>().lit)
+                    target = null;
+            }
+            if(target != null)
+                nav.SetDestination(target.position);
+        }
         else if (Vector3.Distance(player.position, transform.position) <= playerTargetRadius)
         {
             nav.SetDestination(player.position);
@@ -44,6 +54,7 @@ public class Enemy : InkInteraction
 
     public override void Ink(int color)
     {
+        inkTimer += inkCooldown;
         int dmg;
         //If the ink is the same color, enemy is blacK, or ink is blacK, default damage
         if (this.color == color || this.color == 3 || color == 3)
@@ -66,8 +77,11 @@ public class Enemy : InkInteraction
         }
     }
 
+    public float maxAttractRange = 15;
+
     public void AttractToTarget(Transform target)
     {
-        this.target = target;
+        if(Vector3.Distance(target.position, transform.position) <= maxAttractRange)
+            this.target = target;
     }
 }
