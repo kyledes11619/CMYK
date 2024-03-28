@@ -12,6 +12,8 @@ public class InkSystem : MonoBehaviour
     public float inkingRadius;
     public GameObject[] inkParticles;
 
+    
+
     void Start()
     {
         SetColor(color);
@@ -34,5 +36,7 @@ public class InkSystem : MonoBehaviour
         color = i;
         foreach (MeshRenderer m in coloredMeshes)
             m.material = colorMats[color];
+
+            
     }
 }
