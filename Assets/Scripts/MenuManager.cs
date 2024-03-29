@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene( "Hub_World");
+        SceneManager.LoadScene( "Magenta_World");
 
     }
 
