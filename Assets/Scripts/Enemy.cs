@@ -19,7 +19,7 @@ public class Enemy : InkInteraction
     private void Start()
     {
         health = maxHealth;
-        player = FindObjectOfType<CharacterMovement>().gameObject.transform;
+        player = FindObjectOfType<ThirdPersonMovement2>().gameObject.transform;
         nav = GetComponent<NavMeshAgent>();
     }
 
