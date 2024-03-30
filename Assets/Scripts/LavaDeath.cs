@@ -19,8 +19,7 @@ public class LavaDeath : MonoBehaviour
         // Check if the colliding object is the Player
         if (other.CompareTag("Player"))
         {
-            // Pause the game
-            Time.timeScale = 0;
+
 
             // Display the GameOver canvas
             if (gameOverCanvas != null)

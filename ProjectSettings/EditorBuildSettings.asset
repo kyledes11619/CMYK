@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/VerticalSlice.unity
     guid: 7e942214dd5569748909ea5b5b9cbbab
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 37ca3c234e53f85469f19e53db5394b9
+  - enabled: 1
     path: Assets/Scenes/Cyan_World.unity
     guid: b14eef895abe39a4482d7675322ebae9
   - enabled: 1
