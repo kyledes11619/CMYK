@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     public void PlayButton()
     {
         SceneManager.LoadScene( "Magenta_World");
+        Time.timeScale = 1.0f;
 
     }
 

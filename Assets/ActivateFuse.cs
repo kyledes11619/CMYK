@@ -4,52 +4,43 @@ using UnityEngine;
 
 public class ActivateFuse : MonoBehaviour
 {
-    public float lowerSpeed = 0.1f;
-    public float lowerValueLimit = 0f;
-    public float delayBeforeActivatingFuse = 1f;
-    public string floatPropertyName = "Transparency";
-    public string boolPropertyName = "IsFuseActive";
-    private float currentValue;
+    public string floatPropertyName = "Transparency"; // Name of the float property in the shader
+    public float decreaseRate = 0.5f; // Rate at which the float property decreases per second
+    public float minValue = 0.0f; // Minimum value of the float property
 
-    private Material material;
-    
-    private bool isFuseActive = false;
+    private Renderer objectRenderer;
+    private MaterialPropertyBlock propertyBlock;
+    private int floatPropertyID;
 
-    private void Start()
+    void Start()
     {
-        Renderer renderer = GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            material = renderer.material;
-            currentValue = material.GetFloat(floatPropertyName);
-        }
-        else
-        {
-            Debug.LogError("Renderer component not found.");
-        }
+        // Get the Renderer component of the object
+        objectRenderer = GetComponent<Renderer>();
+
+        // Initialize the MaterialPropertyBlock
+        propertyBlock = new MaterialPropertyBlock();
+
+        // Get the ID of the float property
+        floatPropertyID = Shader.PropertyToID(floatPropertyName);
     }
 
-    private void Update()
+    void Update()
     {
-        // Lower the value gradually if the fuse is not yet activated and the value is above the limit
-        if (!isFuseActive && currentValue > lowerValueLimit)
-        {
-            currentValue -= lowerSpeed * Time.deltaTime;
-            // You may want to clamp the value to the lower limit here if necessary
-            // currentValue = Mathf.Max(currentValue, lowerValueLimit);
-            material.SetFloat(floatPropertyName, currentValue);
-        }
+        // Decrease the float property over time
+        DecreaseFloatPropertyOverTime();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void DecreaseFloatPropertyOverTime()
     {
-        // Check if the collision is with the same object
-        if (collision.gameObject == gameObject)
-        {
-            // Activate the fuse after a delay
-            Invoke("ActivateFuse", delayBeforeActivatingFuse);
-        }
-    }
+        // Get the current value of the float property
+        float currentValue = objectRenderer.sharedMaterial.GetFloat(floatPropertyID);
 
-   
+        // Calculate the new value of the float property
+        float newValue = Mathf.Max(currentValue - decreaseRate * Time.deltaTime, minValue);
+
+        // Set the new value of the float property
+        objectRenderer.GetPropertyBlock(propertyBlock);
+        propertyBlock.SetFloat(floatPropertyID, newValue);
+        objectRenderer.SetPropertyBlock(propertyBlock);
+    }
 }

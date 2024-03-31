@@ -25,6 +25,9 @@ public class LavaDeath : MonoBehaviour
             if (gameOverCanvas != null)
             {
                 gameOverCanvas.SetActive(true);
+                Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
         }
     }
