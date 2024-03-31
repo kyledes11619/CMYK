@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Net;
 using UnityEngine;
 
 public class ThirdPersonMovement2 : MonoBehaviour
@@ -35,6 +37,11 @@ public class ThirdPersonMovement2 : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetButtonDown("Fire1"))
+        {
+            anim.SetTrigger("Swing");
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0) 
@@ -51,6 +58,7 @@ public class ThirdPersonMovement2 : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        anim.SetFloat("Speed", Mathf.Abs(direction.x) * speed);
 
         if (direction.magnitude >= 0.1f)
         {
@@ -60,6 +68,7 @@ public class ThirdPersonMovement2 : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             characterController.Move(moveDir.normalized * speed * Time.deltaTime);
+            anim.SetFloat("Speed", Mathf.Abs(speed));
         }
 
         if(Input.GetButtonDown("Jump") && isGrounded)
