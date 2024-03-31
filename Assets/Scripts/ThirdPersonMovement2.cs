@@ -22,9 +22,13 @@ public class ThirdPersonMovement2 : MonoBehaviour
 
     Vector3 velocity;
 
+    Animator anim;
+    [SerializeField] GameObject protag;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        anim = protag.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +40,11 @@ public class ThirdPersonMovement2 : MonoBehaviour
         if (isGrounded && velocity.y < 0) 
         { 
             velocity.y = -2f;
+        }
+
+        if (isGrounded)
+        {
+            anim.SetTrigger("Grounded");
         }
 
 
@@ -53,8 +62,10 @@ public class ThirdPersonMovement2 : MonoBehaviour
             characterController.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
-        if(Input.GetButtonDown("Jump") && isGrounded) { 
+        if(Input.GetButtonDown("Jump") && isGrounded)
+        { 
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            anim.SetTrigger("Jumping");
         }
 
         velocity.y += gravity * Time.deltaTime;

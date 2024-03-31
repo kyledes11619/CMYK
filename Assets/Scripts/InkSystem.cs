@@ -6,7 +6,7 @@ public class InkSystem : MonoBehaviour
 {
     public int color = 3;
     public Material[] colorMats;
-    public MeshRenderer[] coloredMeshes;
+    public SkinnedMeshRenderer[] coloredMeshes;
 
     public Transform inkPoint;
     public float inkingRadius;
@@ -36,7 +36,7 @@ public class InkSystem : MonoBehaviour
     void SetColor(int i)
     {
         color = i;
-        foreach (MeshRenderer m in coloredMeshes)
+        foreach (SkinnedMeshRenderer m in coloredMeshes)
             m.material = colorMats[color];
 
             
