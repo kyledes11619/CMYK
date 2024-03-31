@@ -3409,15 +3409,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4202523612195110386, guid: bccdc2ff48b666d4c8c25cf7981d6872, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.686
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202523612195110386, guid: bccdc2ff48b666d4c8c25cf7981d6872, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202523612195110386, guid: bccdc2ff48b666d4c8c25cf7981d6872, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 44.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202523612195110386, guid: bccdc2ff48b666d4c8c25cf7981d6872, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3455,6 +3455,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 555880167}
+    - target: {fileID: 4202523612195110387, guid: bccdc2ff48b666d4c8c25cf7981d6872, type: 3}
+      propertyPath: m_XAxis.m_InvertInput
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4202523612195110396, guid: bccdc2ff48b666d4c8c25cf7981d6872, type: 3}
       propertyPath: m_Name
       value: Third Person Camera

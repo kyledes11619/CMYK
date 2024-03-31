@@ -12504,7 +12504,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267099184}
-  m_LocalRotation: {x: 0.08297771, y: 0.000000017147041, z: -0.000000001427746, w: 0.9965514}
+  m_LocalRotation: {x: 0.08297769, y: -0.000000017147043, z: 0.0000000014277459, w: 0.9965514}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12590,6 +12590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6077030290672434043, guid: 4a4869710e523374db48c1c295712960, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 2025013125}
     - target: {fileID: 6077030290672434047, guid: 4a4869710e523374db48c1c295712960, type: 3}
       propertyPath: m_RootOrder
       value: 21

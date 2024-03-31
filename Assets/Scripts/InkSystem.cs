@@ -21,6 +21,7 @@ public class InkSystem : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetAxis("DPadX") != 0)
             SetColor(Input.GetAxis("DPadX") == 1 ? 2 : 0);
         else if (Input.GetAxis("DPadY") != 0)
@@ -29,6 +30,7 @@ public class InkSystem : MonoBehaviour
         {
             Destroy(Instantiate(inkParticles[color], inkPoint), 1);
         }
+
     }
 
     void SetColor(int i)
