@@ -29,8 +29,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
     {
-       GameOver();// Call the GameOver method when health reaches 0 or below
-    }
+       GameOver();
+       Cursor.lockState = CursorLockMode.None;
+       Cursor.visible = true;
+        }
 
      HealthBarFiller(damage);
     

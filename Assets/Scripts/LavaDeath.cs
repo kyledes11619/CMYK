@@ -16,12 +16,12 @@ public class LavaDeath : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Check if the colliding object is the Player
+       
         if (other.CompareTag("Player"))
         {
 
 
-            // Display the GameOver canvas
+            
             if (gameOverCanvas != null)
             {
                 gameOverCanvas.SetActive(true);
