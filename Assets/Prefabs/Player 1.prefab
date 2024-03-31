@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6077030290672434047}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1063163685
 AudioSource:
@@ -151,14 +151,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4415256096951475060}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.60484356, y: 0.3715644, z: 0.4094405, w: -0.5731166}
+  m_LocalPosition: {x: 0.000033615157, y: 0.01826794, z: -0.0008220859}
+  m_LocalScale: {x: 0.020000009, y: 0.019999994, z: 0.019999996}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6077030290672434047}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 2159718035457169658}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -43.868, y: 37.521, z: -159.428}
 --- !u!1 &6077030290672434042
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +193,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1614439616410301508}
-  - {fileID: 5225149451997590212}
   - {fileID: 1063163684}
   - {fileID: 6077030291640208477}
   m_Father: {fileID: 0}
@@ -263,7 +262,7 @@ MonoBehaviour:
   - {fileID: 4688056954149969656}
   - {fileID: 5972836107149892582}
   inkPoint: {fileID: 5225149451997590212}
-  inkingRadius: 1
+  inkingRadius: 3
   inkParticles:
   - {fileID: 651262316343954393, guid: 13f77585efdd3524c9fd3ed48a8e4e77, type: 3}
   - {fileID: 651262316343954393, guid: 2258d59e46167014bb99d505e73093f8, type: 3}
@@ -327,7 +326,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6077030290672434047}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1291720805113746351
 PrefabInstance:
@@ -792,6 +791,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &2159718035457169658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 870814472852507477, guid: 4723f292a35e7f64b9b8a53e390db8ec, type: 3}
+  m_PrefabInstance: {fileID: 1291720805113746351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &4688056954149969656 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -3395063429761741481, guid: 4723f292a35e7f64b9b8a53e390db8ec, type: 3}
