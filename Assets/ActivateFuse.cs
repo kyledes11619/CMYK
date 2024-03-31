@@ -51,10 +51,5 @@ public class ActivateFuse : MonoBehaviour
         }
     }
 
-    private void ActivateFuse()
-    {
-        isFuseActive = true;
-        material.SetFloat(boolPropertyName, isFuseActive ? 1.0f : 0.0f);
-    }
-
+   
 }
