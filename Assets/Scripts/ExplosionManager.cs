@@ -12,13 +12,16 @@ public class ExplosionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (source == null)
+        {
+            source = GetComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
     void OnDisable()
     {
-        if (Explosion != null)
+        if (Explosion != null && clip != null && source != null)
         {
             source.PlayOneShot(clip);
             GameObject explosionInstance = Instantiate(Explosion, transform.position, transform.rotation);

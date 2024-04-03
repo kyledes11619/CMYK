@@ -26,6 +26,7 @@ public class PlatformMovement : MonoBehaviour
 
         // Move the platform using a sinusoidal motion (back and forth)
         transform.position = Vector3.Lerp(startPoint.position, endPoint.position, Mathf.PingPong(fracJourney, 1));
+
     }
 }
 
