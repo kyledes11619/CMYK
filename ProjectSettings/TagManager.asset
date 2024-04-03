@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Platform
+  - Switch
+  - Push
   layers:
   - Default
   - TransparentFX

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth Instance;
     public int health, maxHealth;
-    public Text healthText;
+    public TMP_Text healthText;
     public Image healthBar;
     public GameObject gameOverScreen;
     
