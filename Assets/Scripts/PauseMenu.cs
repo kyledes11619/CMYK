@@ -60,9 +60,11 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        Time.timeScale = 1f; // Set time scale back to normal before loading the menu
-        ToggleCursorVisibility(true); // Unlock the cursor and make it visible
-        SceneManager.LoadScene("Magenta_World");
+    Time.timeScale = 1f; // Set time scale back to normal before loading the menu
+    GameIsPaused = false; // Reset the pause state
+    ToggleCursorVisibility(true); // Unlock the cursor and make it visible
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(currentSceneIndex);
     }
 
     public void QuitGame()
