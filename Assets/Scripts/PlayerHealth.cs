@@ -69,13 +69,13 @@ public class PlayerHealth : MonoBehaviour
 
     void HealthBarFiller(int damage)
 {
-    // Define the amount by which the fill amount decreases for each point of damage (1/5 ratio)
+    
     float decreasePerDamage = 0.2f;
 
-    // Calculate the target fill amount after taking damage
+    
     float targetFillAmount = Mathf.Clamp(healthBar.fillAmount - (decreasePerDamage * damage), 0f, 1f);
 
-    // Smoothly interpolate towards the target fill amount
+    
     healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, targetFillAmount, lerpSpeed * Time.deltaTime);
 }
 

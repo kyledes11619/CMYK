@@ -6,7 +6,8 @@ public class GameOver : MonoBehaviour
     public void RetryGame()
     {
         //CleanupScene();
-        SceneManager.LoadScene("Magenta_World");
+         Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
         Time.timeScale = 1.0f;
     }
 
