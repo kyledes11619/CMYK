@@ -6,20 +6,11 @@ public class PushableBlock : InkInteraction
 {
     public float pushPower;
     public int color;
-    Vector3 goal;
     Rigidbody rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
-    private void Update()
-    {
-        if (inkTimer > 0)
-        {
-            rb.MovePosition(Vector3.MoveTowards(transform.position, goal, pushPower * Time.deltaTime * inkCooldown));
-            inkTimer -= Time.deltaTime;
-        }
     }
 
     public override void Ink(int color)
@@ -29,7 +20,7 @@ public class PushableBlock : InkInteraction
         {
             Vector3 t = transform.position - PlayerHealth.Instance.transform.position;
             t.y = 0;
-            goal = transform.position + (pushPower * Vector3.Normalize(t));
+            rb.AddForce(transform.position + (pushPower * Vector3.Normalize(t)));
             inkTimer = inkCooldown;
         }
     }
