@@ -17,6 +17,12 @@ public class GameOver : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void ReturnHub()
+    {
+        SceneManager.LoadScene("Hub_World_2");
+        Time.timeScale = 1.0f;
+    }
+
     //private void CleanupScene()
         //foreach (var explosion in GameObject.FindGameObjectsWithTag("Explosion"))
         //{
