@@ -18,10 +18,9 @@ public class PushableBlock : InkInteraction
         Debug.Log(this.color + ":" + color);
         if(inkTimer <= 0 && this.color == color)
         {
-            Vector3 t = transform.position - PlayerHealth.Instance.transform.position;
-            t.y = 0;
-            rb.AddForce(transform.position + (pushPower * Vector3.Normalize(t)));
             inkTimer = inkCooldown;
+            Vector3 t = transform.position - PlayerHealth.Instance.transform.position;
+            rb.AddForce(transform.position + (pushPower * Vector3.Normalize(t)));
         }
     }
 }
