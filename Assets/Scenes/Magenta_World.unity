@@ -5870,6 +5870,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1808066567}
+        m_TargetAssemblyTypeName: InkSystem, Assembly-CSharp
+        m_MethodName: UnlockLevelColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &481075056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8820,7 +8832,6 @@ GameObject:
   - component: {fileID: 755609889}
   - component: {fileID: 755609888}
   - component: {fileID: 755609887}
-  - component: {fileID: 755609890}
   - component: {fileID: 755609891}
   m_Layer: 0
   m_Name: Main Camera
@@ -8895,18 +8906,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 14.679, y: 3.465, z: 0}
---- !u!114 &755609890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755609886}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab2026a7dc04c064daf74ab757ab7503, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &755609891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25103,6 +25102,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4869710e523374db48c1c295712960, type: 3}
+--- !u!114 &1808066567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6077030290672434040, guid: 4a4869710e523374db48c1c295712960, type: 3}
+  m_PrefabInstance: {fileID: 1808066566}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757c8c00b343eb04492bf22f7ea700a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1808953391
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ public class GameOver : MonoBehaviour
 
     public void ReturnHub()
     {
+        
         SceneManager.LoadScene("Hub_World_2");
         Time.timeScale = 1.0f;
     }
