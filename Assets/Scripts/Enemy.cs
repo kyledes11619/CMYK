@@ -14,13 +14,15 @@ public class Enemy : InkInteraction
     NavMeshAgent nav;
     public float playerTargetRadius = 10;
     public GameObject damageText;
-    
+
+    Animator anim;
 
     private void Start()
     {
         health = maxHealth;
         player = FindObjectOfType<ThirdPersonMovement2>().gameObject.transform;
         nav = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -38,12 +40,20 @@ public class Enemy : InkInteraction
                 if (!target.GetComponent<Torch>().lit)
                     target = null;
             }
-            if(target != null)
+            if (target != null)
+            {
                 nav.SetDestination(target.position);
+                anim.Play("EnemyRun");
+            }
+            else
+            { 
+                anim.Play("EnemyIdle");
+            }
         }
         else if (Vector3.Distance(player.position, transform.position) <= playerTargetRadius)
         {
             nav.SetDestination(player.position);
+            anim.Play("EnemyRun");
             if (Vector3.Distance(player.position, transform.position) <= damageRange && damageCooldownTimer <= 0)
             {
                 damageCooldownTimer += damageCooldown;
