@@ -25002,7 +25002,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6077030290672434040, guid: 4a4869710e523374db48c1c295712960, type: 3}
       propertyPath: freeColorForLevel
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6077030290672434040, guid: 4a4869710e523374db48c1c295712960, type: 3}
       propertyPath: colorIcons.Array.size
