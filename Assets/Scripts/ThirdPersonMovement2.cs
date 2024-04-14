@@ -49,6 +49,11 @@ public class ThirdPersonMovement2 : MonoBehaviour
             velocity.y = -2f;
         }
 
+        if (velocity.y != -2f)
+        {
+            isGrounded = false;
+        }
+
         if (isGrounded)
         {
             anim.SetTrigger("Grounded");
@@ -75,6 +80,7 @@ public class ThirdPersonMovement2 : MonoBehaviour
         { 
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             anim.SetTrigger("Jumping");
+            anim.ResetTrigger("Grounded");
         }
 
         velocity.y += gravity * Time.deltaTime;
