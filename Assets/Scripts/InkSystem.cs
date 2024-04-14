@@ -75,4 +75,14 @@ public class InkSystem : MonoBehaviour
     {
         UnlockColor(freeColorForLevel);
     }
+
+    public void SetHard(bool b)
+    {
+        hard = b;
+    }
+
+    public void SetInvincible(bool b)
+    {
+        invincible = b;
+    }
 }
