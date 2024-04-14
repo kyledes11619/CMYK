@@ -5,6 +5,7 @@ using UnityEngine;
 public class InkSystem : MonoBehaviour
 {
     public static bool[] unlockedColors = { false, false, false, true };
+    public static bool invincible, hard;
 
     public int color = 3;
     public Material[] colorMats;
@@ -54,13 +55,20 @@ public class InkSystem : MonoBehaviour
     public void UnlockAllColors()
     {
         for (int i = 0; i < 3; i++)
+        {
             UnlockColor(i);
+            colorIcons[i].SetActive(true);
+        }
     }
 
     public void ResetAllColors()
     {
         for (int i = 0; i < 3; i++)
-            UnlockColor(i);
+        {
+            unlockedColors[i] = false;
+            if (freeColorForLevel != i)
+                colorIcons[i].SetActive(false);
+        }
     }
 
     public void UnlockLevelColor()
