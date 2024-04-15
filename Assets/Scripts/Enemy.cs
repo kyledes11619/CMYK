@@ -16,6 +16,9 @@ public class Enemy : InkInteraction
     public GameObject damageText;
 
     Animator anim;
+    AudioSource audioSource;
+    [SerializeField] AudioClip enemyKillClip;
+    [SerializeField] AudioClip enemyWalkClip;
 
     private void Start()
     {
@@ -23,6 +26,7 @@ public class Enemy : InkInteraction
         player = FindObjectOfType<ThirdPersonMovement2>().gameObject.transform;
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -54,7 +58,7 @@ public class Enemy : InkInteraction
         {
             nav.SetDestination(player.position);
             anim.Play("EnemyRun");
-            if (Vector3.Distance(player.position, transform.position) <= damageRange && damageCooldownTimer <= 0)
+            if (!InkSystem.invincible && Vector3.Distance(player.position, transform.position) <= damageRange && damageCooldownTimer <= 0)
             {
                 damageCooldownTimer += damageCooldown;
                 PlayerHealth.Instance.TakeDamage(damage);
@@ -78,13 +82,21 @@ public class Enemy : InkInteraction
         //If Magenta, Cyan deals more damage and Yellow does less
         else
             dmg = color == 1 ? 4 : 1;
+        if(InkSystem.hard)
+            dmg /= 2;
         health -= dmg;
         GameObject text = Instantiate(damageText, transform.position, Quaternion.identity);
         text.GetComponent<TextMesh>().text = "" + dmg;
+        audioSource.PlayOneShot(enemyKillClip);
         Destroy(text, 1);
         if(health <= 0) {
             Destroy(gameObject);
         }
+    }
+
+    public void Splotch()
+    {
+        audioSource.PlayOneShot(enemyWalkClip);
     }
 
     public float maxAttractRange = 15;

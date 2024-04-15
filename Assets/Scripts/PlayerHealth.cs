@@ -11,14 +11,13 @@ public class PlayerHealth : MonoBehaviour
     public TMP_Text healthText;
     public Image healthBar;
     public GameObject gameOverScreen;
-    
+    AudioSource audioSource;
+    [SerializeField] AudioClip hurtClip;
 
-    
-    
-    
     private void Awake()
     {
         Instance = this;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
    
@@ -27,12 +26,13 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         healthText.text = "Health " + health + "/" + maxHealth;
+        audioSource.PlayOneShot(hurtClip);
 
         if (health <= 0)
-    {
-       GameOver();
-       Cursor.lockState = CursorLockMode.None;
-       Cursor.visible = true;
+        {
+            GameOver();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
      HealthBarFiller(damage);

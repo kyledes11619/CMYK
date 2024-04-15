@@ -5,6 +5,7 @@ using UnityEngine;
 public class InkSystem : MonoBehaviour
 {
     public static bool[] unlockedColors = { false, false, false, true };
+    public static bool invincible, hard;
 
     public int color = 3;
     public Material[] colorMats;
@@ -26,10 +27,14 @@ public class InkSystem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxis("DPadX") != 0)
-            SetColor(Input.GetAxis("DPadX") == 1 ? 2 : 0);
-        else if (Input.GetAxis("DPadY") != 0)
-            SetColor(Input.GetAxis("DPadY") == 1 ? 1 : 3);
+        if (Input.GetAxis("DPadX") > 0)
+            SetColor(2);
+        else if (Input.GetAxis("DPadX") < 0)
+            SetColor(0);
+        else if (Input.GetAxis("DPadY") > 0)
+            SetColor(1);
+        else if (Input.GetAxis("DPadY") < 0)
+            SetColor(3);
         if (Input.GetButtonDown("Fire1"))
         {
             Destroy(Instantiate(inkParticles[color], inkPoint), 1);
@@ -54,17 +59,34 @@ public class InkSystem : MonoBehaviour
     public void UnlockAllColors()
     {
         for (int i = 0; i < 3; i++)
+        {
             UnlockColor(i);
+            colorIcons[i].SetActive(true);
+        }
     }
 
     public void ResetAllColors()
     {
         for (int i = 0; i < 3; i++)
-            UnlockColor(i);
+        {
+            unlockedColors[i] = false;
+            if (freeColorForLevel != i)
+                colorIcons[i].SetActive(false);
+        }
     }
 
     public void UnlockLevelColor()
     {
         UnlockColor(freeColorForLevel);
+    }
+
+    public void SetHard(bool b)
+    {
+        hard = b;
+    }
+
+    public void SetInvincible(bool b)
+    {
+        invincible = b;
     }
 }
