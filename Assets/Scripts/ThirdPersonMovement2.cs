@@ -25,12 +25,16 @@ public class ThirdPersonMovement2 : MonoBehaviour
     Vector3 velocity;
 
     Animator anim;
+    AudioSource audioSource;
+    [SerializeField] AudioClip jumpClip;
+    [SerializeField] AudioClip swingClip;
     [SerializeField] GameObject protag;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         anim = protag.GetComponent<Animator>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class ThirdPersonMovement2 : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetTrigger("Swing");
+            audioSource.PlayOneShot(swingClip);
         }
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -81,6 +86,7 @@ public class ThirdPersonMovement2 : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             anim.SetTrigger("Jumping");
             anim.ResetTrigger("Grounded");
+            audioSource.PlayOneShot(jumpClip);
         }
 
         velocity.y += gravity * Time.deltaTime;

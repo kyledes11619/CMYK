@@ -16,6 +16,9 @@ public class Enemy : InkInteraction
     public GameObject damageText;
 
     Animator anim;
+    AudioSource audioSource;
+    [SerializeField] AudioClip enemyKillClip;
+    [SerializeField] AudioClip enemyWalkClip;
 
     private void Start()
     {
@@ -23,6 +26,7 @@ public class Enemy : InkInteraction
         player = FindObjectOfType<ThirdPersonMovement2>().gameObject.transform;
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -83,10 +87,16 @@ public class Enemy : InkInteraction
         health -= dmg;
         GameObject text = Instantiate(damageText, transform.position, Quaternion.identity);
         text.GetComponent<TextMesh>().text = "" + dmg;
+        audioSource.PlayOneShot(enemyKillClip);
         Destroy(text, 1);
         if(health <= 0) {
             Destroy(gameObject);
         }
+    }
+
+    public void Splotch()
+    {
+        audioSource.PlayOneShot(enemyWalkClip);
     }
 
     public float maxAttractRange = 15;
