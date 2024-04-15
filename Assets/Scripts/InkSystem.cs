@@ -61,7 +61,8 @@ public class InkSystem : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             UnlockColor(i);
-            colorIcons[i].SetActive(true);
+            if (colorIcons[i] != null)
+                colorIcons[i].SetActive(true);
         }
     }
 
@@ -70,7 +71,7 @@ public class InkSystem : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             unlockedColors[i] = false;
-            if (freeColorForLevel != i)
+            if (freeColorForLevel != i && colorIcons[i] != null)
                 colorIcons[i].SetActive(false);
         }
     }
