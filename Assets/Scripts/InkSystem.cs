@@ -27,10 +27,14 @@ public class InkSystem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxis("DPadX") != 0)
-            SetColor(Input.GetAxis("DPadX") == 1 ? 2 : 0);
-        else if (Input.GetAxis("DPadY") != 0)
-            SetColor(Input.GetAxis("DPadY") == 1 ? 1 : 3);
+        if (Input.GetAxis("DPadX") > 0)
+            SetColor(2);
+        else if (Input.GetAxis("DPadX") < 0)
+            SetColor(0);
+        else if (Input.GetAxis("DPadY") > 0)
+            SetColor(1);
+        else if (Input.GetAxis("DPadY") < 0)
+            SetColor(3);
         if (Input.GetButtonDown("Fire1"))
         {
             Destroy(Instantiate(inkParticles[color], inkPoint), 1);
