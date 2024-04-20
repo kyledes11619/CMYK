@@ -494,7 +494,7 @@ MonoBehaviour:
   maxHealth: 4
   damage: 1
   damageCooldown: 2
-  damageRange: 1.5
+  damageRange: 3
   target: {fileID: 0}
   playerTargetRadius: 10
   damageText: {fileID: 7956322849051649987, guid: 59c610e67db93c84c85214130de3040c, type: 3}
