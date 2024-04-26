@@ -9,9 +9,10 @@ public class PlayerFall : MonoBehaviour
  
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.CompareTag("Player"))
         {
             other.transform.position = respawn;
+            Debug.Log("Player respawned to: " + respawn);
         }
     }
 }
