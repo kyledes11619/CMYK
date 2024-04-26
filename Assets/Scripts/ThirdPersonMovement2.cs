@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class ThirdPersonMovement2 : MonoBehaviour
@@ -29,6 +30,8 @@ public class ThirdPersonMovement2 : MonoBehaviour
     [SerializeField] AudioClip jumpClip;
     [SerializeField] AudioClip swingClip;
     [SerializeField] GameObject protag;
+    bool wasGrounded = true;
+    PlatformMoveInfo currentPlatform = null;
 
     void Start()
     {
@@ -62,8 +65,17 @@ public class ThirdPersonMovement2 : MonoBehaviour
         if (isGrounded)
         {
             anim.SetTrigger("Grounded");
+            if (!wasGrounded)
+            {
+                Collider near = Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask)[0];
+                if (near != null && near.GetComponent<PlatformMoveInfo>() != null)
+                {
+                    near.GetComponent<PlatformMoveInfo>().becomeParented();
+                    currentPlatform = near.GetComponent<PlatformMoveInfo>();
+                }
+            }
         }
-
+        wasGrounded = isGrounded;
 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -80,9 +92,11 @@ public class ThirdPersonMovement2 : MonoBehaviour
             characterController.Move(moveDir.normalized * speed * Time.deltaTime);
             anim.SetFloat("Speed", Mathf.Abs(speed));
         }
-
-        if(Input.GetButtonDown("Jump") && isGrounded)
-        { 
+        if (currentPlatform != null)
+            characterController.Move(currentPlatform.getPosDiff());
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            currentPlatform = null;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             anim.SetTrigger("Jumping");
             anim.ResetTrigger("Grounded");
