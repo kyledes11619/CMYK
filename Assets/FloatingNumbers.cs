@@ -6,6 +6,6 @@ public class FloatingNumbers : MonoBehaviour
 {
     void Update()
     {
-        transform.LookAt(Camera.main.transform, Vector3.up);
+        transform.LookAt(transform.position + transform.position - Camera.main.transform.position, Vector3.up);
     }
 }
